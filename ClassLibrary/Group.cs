@@ -8,6 +8,7 @@ namespace ClassLibrary
 {
     internal class Group
     {
+        //Изменения 1
         private string name;
         private string shortname;
         private int quantity;
