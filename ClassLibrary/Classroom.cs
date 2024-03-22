@@ -7,24 +7,38 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    internal class Classroom
+    /// <summary>
+    /// https://docs.google.com/document/d/10XwtkjNB6-lRehWP_7qbgWC1nn_oIpa28ezyPXX3B28/edit 2 вариант
+    /// </summary>
+    public class Classroom
     {
-        private string date;
         private string name;
         private Employee employee;
-        private string window;
-        private Equipment equipment;
-        private string seat;
-        public Classroom(string date, string name, Employee employee, string window, Equipment equipment, string seat)
+        private int places;
+        private int windows;
+        public Classroom(string name, Employee employee, int count_places, int count_windows)
         {
-            this.date = DateTime.Today.ToString();
             this.name = name;
             this.employee = employee;
-            this.window = window;
-            this.equipment = equipment;
-            this.seat = seat;
+            this.places = count_places;
+            this.windows = count_windows;
         }
 
+        public string Number
+        {
+            get { return name; }
+        }
+
+
+        public int Places
+        {
+            get { return places; }
+        }
+
+        public int Windows
+        {
+            get { return windows; }
+        }
     }
-    
+
 }

@@ -7,8 +7,10 @@ using System.Xml.Linq;
 
 namespace ClassLibrary
 {
-
-    internal class Discipline
+    /// <summary>
+    /// https://docs.google.com/document/d/1qCEMkbMRvvHP361IFDeWgSpHfVRUp6BV67nrsjl3fSw/edit 3 вариант
+    /// </summary>
+    public class Discipline
     {
         private string name;
         private string shortname;

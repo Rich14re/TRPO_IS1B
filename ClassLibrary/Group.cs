@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    internal class Group
+    /// <summary>
+    /// https://docs.google.com/document/d/1qZEaADy71rJCOuNSTpyhh-f-NhSL2a6DCm88EgFO20o/edit 4 вариант
+    /// </summary>
+    public class Group
     {
         //Изменения 1
         private string name;
@@ -30,6 +33,11 @@ namespace ClassLibrary
             {
                 this.year = year;
             }
+        }
+
+        public string Name
+        {
+            get { return name; }
         }
     }
 }
