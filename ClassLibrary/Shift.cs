@@ -11,16 +11,16 @@ namespace ClassLibrary
     /// </summary>
     public class Shift
     {
-        private string name;
-        private string date;
+        private readonly string name;
+        private readonly DateTime date;
 
-        public Shift(string name, string date)
+        public Shift(string name, DateTime date)
         {
             this.name = name;
             this.date = date;
         }
 
-        public Shift(string name) : this(name, DateTime.Now.ToString())
+        public Shift(string name) : this(name, DateTime.Now)
         {
         }
 
@@ -29,7 +29,7 @@ namespace ClassLibrary
             get { return name; }
         }
 
-        public string Date
+        public DateTime Date
         {
             get { return date; }
         }
