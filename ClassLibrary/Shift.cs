@@ -8,8 +8,8 @@ namespace ClassLibrary
 {
     internal class Shift
     {
-        private string name;
-        private DateTime date;
+        private readonly string name;
+        private readonly DateTime date;
 
         public Shift(string name, DateTime date)
         {
