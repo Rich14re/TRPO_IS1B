@@ -10,8 +10,8 @@ namespace ClassLibrary
 
     internal class Discipline
     {
-        private string name;
-        private string shortname;
+        public string name;
+        public string shortname;
         public Discipline(string name, string shortname)
         {
             this.name = name;
