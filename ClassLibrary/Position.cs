@@ -12,10 +12,10 @@ namespace ClassLibrary
         /// https://docs.google.com/document/d/1yBWzXRuxmOQiPQs9TyNx8tNgq6nWF42Sjn-mgT_-5nY/edit?usp=drive_link 10 вариант
         /// </summary>
         private string title;
-        private double salary;
+        private decimal salary;
         private Division division;
 
-        public Position(string title, double salary, Division division)
+        public Position(string title, decimal salary, Division division)
         {
             this.title = title;
             this.salary = salary;
