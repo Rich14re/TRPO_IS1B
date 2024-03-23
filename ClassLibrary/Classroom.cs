@@ -12,11 +12,11 @@ namespace ClassLibrary
     /// </summary>
     internal class Classroom
     {
-        private string name;
-        private Employee employee;
-        private int places;
-        private int windows;
-        private Equipment equipment;
+        private readonly string name;
+        private readonly Employee employee;
+        private readonly int places;
+        private readonly int windows;
+        private readonly Equipment equipment;
         public Classroom(string name, Employee employee, int count_places, int count_windows, Equipment equipment)
         {
             this.name = name;
