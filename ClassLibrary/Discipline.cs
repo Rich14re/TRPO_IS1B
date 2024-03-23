@@ -21,6 +21,10 @@ namespace ClassLibrary
         {
             get { return name; }
         }
+        public string Shortname
+        {
+            get { return shortname; }
+        }
     }
     
 }
