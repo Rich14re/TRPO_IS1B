@@ -12,16 +12,18 @@ namespace ClassLibrary
     /// </summary>
     public class Classroom
     {
-        private string name;
-        private Employee employee;
-        private int places;
-        private int windows;
-        public Classroom(string name, Employee employee, int count_places, int count_windows)
+        private readonly string name;
+        public readonly Employee employee;
+        private readonly int places;
+        private readonly int windows;
+        public readonly Equipment equipment;
+        public Classroom(string name, Employee employee, int count_places, int count_windows, Equipment equipment)
         {
             this.name = name;
             this.employee = employee;
             this.places = count_places;
             this.windows = count_windows;
+            this.equipment = equipment;
         }
 
         public string Number
@@ -40,5 +42,4 @@ namespace ClassLibrary
             get { return windows; }
         }
     }
-
 }
