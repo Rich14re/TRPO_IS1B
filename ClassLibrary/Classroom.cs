@@ -10,13 +10,13 @@ namespace ClassLibrary
     /// <summary>
     /// https://docs.google.com/document/d/10XwtkjNB6-lRehWP_7qbgWC1nn_oIpa28ezyPXX3B28/edit 2 вариант
     /// </summary>
-    internal class Classroom
+    public class Classroom
     {
         private readonly string name;
-        private readonly Employee employee;
+        public readonly Employee employee;
         private readonly int places;
         private readonly int windows;
-        private readonly Equipment equipment;
+        public readonly Equipment equipment;
         public Classroom(string name, Employee employee, int count_places, int count_windows, Equipment equipment)
         {
             this.name = name;
