@@ -12,8 +12,8 @@ namespace ClassLibrary
     /// </summary>
     public class Discipline
     {
-        private string name;
-        private string shortname;
+        private readonly string name;
+        private readonly string shortname;
         public Discipline(string name, string shortname)
         {
             this.name = name;
@@ -22,6 +22,10 @@ namespace ClassLibrary
         public string Name
         {
             get { return name; }
+        }
+        public string Shortname
+        {
+            get { return shortname; }
         }
     }
     
