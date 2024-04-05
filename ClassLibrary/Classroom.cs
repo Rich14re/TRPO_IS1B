@@ -42,6 +42,4 @@ namespace ClassLibrary
             get { return windows; }
         }
     }
-
 }
-
