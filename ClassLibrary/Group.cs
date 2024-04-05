@@ -15,9 +15,9 @@ namespace ClassLibrary
         private readonly int quantity;
         private readonly int year;
         private readonly Speciality speciality;
-        private readonly Employee employee;
+        public readonly Employee employee;
         //Изменения 1
-        public Group(string name, string shortname, int quantity, Speciality speciality, Employee classroomteatcher, int year = -1)
+        public Group(string name, string shortname, int quantity, Speciality speciality, Employee employee, int year = -1)
         {
             this.name = name;
             this.shortname = shortname;
