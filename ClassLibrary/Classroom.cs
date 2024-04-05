@@ -16,8 +16,8 @@ namespace ClassLibrary
         public readonly Employee employee;
         private readonly int places;
         private readonly int windows;
-        public readonly Equipment equipment;
-        public Classroom(string name, Employee employee, int count_places, int count_windows, Equipment equipment)
+        public readonly Equipment[] equipment;
+        public Classroom(string name, Employee employee, int count_places, int count_windows, Equipment[] equipment)
         {
             this.name = name;
             this.employee = employee;
@@ -41,5 +41,7 @@ namespace ClassLibrary
         {
             get { return windows; }
         }
+
+        public Equipment[] Equipment { get { return equipment; } }
     }
 }
