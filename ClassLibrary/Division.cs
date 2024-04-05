@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    internal class Division
+    public class Division
     {
     }
 }
