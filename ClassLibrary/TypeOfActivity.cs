@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    class TypeOfActivity
+    public class TypeOfActivity
     {
+        public char Letter { get; set; }
     }
 }

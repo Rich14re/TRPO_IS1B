@@ -2,7 +2,10 @@
 
 namespace ClassLibrary
 {
-    internal class Group
+    /// <summary>
+    /// https://docs.google.com/document/d/1qZEaADy71rJCOuNSTpyhh-f-NhSL2a6DCm88EgFO20o/edit 4 вариант
+    /// </summary>
+    public class Group
     {
         private readonly string name;
         private readonly string shortname;
@@ -27,11 +30,11 @@ namespace ClassLibrary
                 this.year = year;
             }
         }
+
         public string Name
         {
             get { return name; }
         }
-
         public string Shortname
         {
             get { return shortname; }
