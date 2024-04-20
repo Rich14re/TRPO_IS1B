@@ -39,43 +39,43 @@ namespace ConsoleApp
                     switch (choice)
                     {
                         case 1:
-                            CreateLesson();
+                            Creator.CreateLesson();
                             break;
                         case 2:
-                            CreateClassroom();
+                            Creator.CreateClassroom();
                             break;
                         case 3:
-                            CreateDiscipline();
+                            Creator.CreateDiscipline();
                             break;
                         case 4:
-                            CreateGroup();
+                            Creator.CreateGroup();
                             break;
                         case 5:
-                            CreateStudent();
+                            Creator.CreateStudent();
                             break;
                         case 6:
-                            CreateSpeciality();
+                            Creator.CreateSpeciality();
                             break;
                         case 7:
-                            CreatePair();
+                            Creator.CreatePair();
                             break;
                         case 8:
-                            CreateShift();
+                            Creator.CreateShift();
                             break;
                         case 9:
-                            CreateEmployee();
+                            Creator.CreateEmployee();
                             break;
                         case 10:
-                            CreateJobTitle();
+                            Creator.CreateJobTitle();
                             break;
                         case 11:
-                            CreateSubdivision();
+                            Creator.CreateSubdivision();
                             break;
                         case 12:
-                            CreateOrganization();
+                            Creator.CreateOrganization();
                             break;
                         case 13:
-                            CreateBody();
+                            Creator.CreateBody();
                             break;
                         case 14:
                             exit = true;
