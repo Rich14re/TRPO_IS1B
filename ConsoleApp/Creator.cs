@@ -74,7 +74,7 @@ namespace ConsoleApp
             string date = Console.ReadLine();
 
             Console.WriteLine("Введите вид деятельности:");
-            char activityLetter = char.Parse(Console.ReadLine().ToUpper());
+            string activityLetter = Console.ReadLine().ToUpper();
 
             TypeOfActivity typeofactivity = DB.typeOfActivities.FirstOrDefault(a => a.Letter == activityLetter);
             if (typeofactivity == null)
@@ -385,12 +385,20 @@ namespace ConsoleApp
         static public void CreateTypeOfActivity()
         {
             Console.WriteLine("Введите букву вида деятельности:");
-            char activityLetter = char.Parse(Console.ReadLine().ToUpper());
+            string activityLetter = Console.ReadLine().ToUpper();
 
-            TypeOfActivity activity = new TypeOfActivity { Letter = activityLetter };
-            DB.typeOfActivities.Add(activity);
+            if (!string.IsNullOrEmpty(activityLetter))
+            {
+                TypeOfActivity activity = new TypeOfActivity { Letter = activityLetter };
+                DB.typeOfActivities.Add(activity);
 
-            Console.WriteLine("Вид деятельности успешно создан.");
+                Console.WriteLine("Вид деятельности успешно создан.");
+            }
+            else
+            {
+                Console.WriteLine("Введена пустая строка. Пожалуйста, введите букву вида деятельности.");
+                CreateTypeOfActivity();
+            }
         }
     }
 }

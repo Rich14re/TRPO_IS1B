@@ -78,6 +78,45 @@ namespace ConsoleApp
                             Creator.CreateBody();
                             break;
                         case 14:
+                            Printer.PrintShifts();
+                            break;
+                        case 15:
+                            Printer.PrintLessons();
+                            break;
+                        case 16:
+                            Printer.PrintClassrooms();
+                            break;
+                        case 17:
+                            Printer.PrintDisciplines();
+                            break;
+                        case 18:
+                            Printer.PrintGroups();
+                            break;
+                        case 19:
+                            Printer.PrintStudents();
+                            break;
+                        case 20:
+                            Printer.PrintSpecialities();
+                            break;
+                        case 21:
+                            Printer.PrintPairs();
+                            break;
+                        case 22:
+                            Printer.PrintEmployees();
+                            break;
+                        case 23:
+                            Printer.PrintPositions();
+                            break;
+                        case 24:
+                            Printer.PrintDivisions();
+                            break;
+                        case 25:
+                            Printer.PrintOrganisations();
+                            break;
+                        case 26:
+                            Printer.PrintBodies();
+                            break;
+                        case 27:
                             exit = true;
                             break;
                         default:
