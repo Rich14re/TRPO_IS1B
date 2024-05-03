@@ -57,6 +57,14 @@ namespace ConsoleApp
             }
         }
 
+        public static void PrintTypeOfActivities()
+        {
+            foreach (var typeOfActivity in DB.typeOfActivities)
+            {
+                Printer.PrintTypeOfActivity(typeOfActivity);
+                Console.WriteLine();
+            }
+        }
         public static void PrintSpecialities()
         {
             foreach (var speciality in DB.specialties)
@@ -138,7 +146,7 @@ namespace ConsoleApp
             Console.WriteLine($"Преподаватель: {lesson.Employe.Name}");
             Console.WriteLine($"Аудитория: {lesson.Classroom.Number}");
             Console.WriteLine($"Группа: {lesson.Group.Name}");
-            Console.WriteLine($"Пара: {lesson.Pair.Time_Pair_Start}-{lesson.Pair.Time_Pair_End}");
+            Console.WriteLine($"Пара: {lesson.Pair.Time_Pair_Start} - {lesson.Pair.Time_Break_End}");
             Console.WriteLine($"Вид деятельности: {lesson.TypeOfActivity.Letter}");
         }
 
@@ -232,13 +240,13 @@ namespace ConsoleApp
             Console.WriteLine($"Адрес: {body.Address}");
             if (body.Comendante != null)
             {
-                Console.WriteLine($"Комендант: {body.Comendante.Name}");
+                Console.WriteLine($"Комендант: {body.Comendante.Name} {body.Comendante.Surname} {body.Comendante.Patronymic}");
             }
             else
             {
                 Console.WriteLine("Комендант не указан.");
             }
-            Console.WriteLine($"Организация: {body.Organization}");
+            Console.WriteLine($"Организация: {body.Organization.Name}");
         }
     }
 }
