@@ -55,43 +55,43 @@ namespace ConsoleApp
                     switch (choice)
                     {
                         case 1:
-                            Creator.CreateLesson();
+                            Creator.GetOrCreateLesson();
                             break;
                         case 2:
-                            Creator.CreateClassroom();
+                            Creator.GetOrCreateClassroom();
                             break;
                         case 3:
-                            Creator.CreateDiscipline();
+                            Creator.GetOrCreateDiscipline();
                             break;
                         case 4:
-                            Creator.CreateGroup();
+                            Creator.GetOrCreateGroup();
                             break;
                         case 5:
-                            Creator.CreateStudent();
+                            Creator.GetOrCreateStudent();
                             break;
                         case 6:
-                            Creator.CreateSpeciality();
+                            Creator.GetOrCreateSpeciality();
                             break;
                         case 7:
-                            Creator.CreatePair();
+                            Creator.GetOrCreatePair();
                             break;
                         case 8:
-                            Creator.CreateShift();
+                            Creator.GetOrCreateShift();
                             break;
                         case 9:
-                            Creator.CreateEmployee();
+                            Creator.GetOrCreateEmployee();
                             break;
                         case 10:
-                            Creator.CreateJobTitle();
+                            Creator.GetOrCreatePosition();
                             break;
                         case 11:
-                            Creator.CreateSubdivision();
+                            Creator.GetOrCreateSubdivision();
                             break;
                         case 12:
-                            Creator.CreateOrganization();
+                            Creator.GetOrCreateOrganization();
                             break;
                         case 13:
-                            Creator.CreateBody();
+                            Creator.GetOrCreateBody();
                             break;
                         case 14:
                             Printer.PrintShifts();
@@ -136,7 +136,7 @@ namespace ConsoleApp
                             Printer.PrintTypeOfActivities();
                             break;
                         case 29:
-                            Creator.CreateTypeOfActivity();
+                            Creator.GetOrCreateTypeOfActivity();
                             break;
                         case 28:
                             exit = true;

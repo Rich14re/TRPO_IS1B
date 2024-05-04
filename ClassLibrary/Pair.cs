@@ -8,12 +8,14 @@ namespace ClassLibrary
 {
     public class Pair
     {
+        /// <summary>
+        /// Время должно храниться в TimeSpan
+        /// </summary>
         private readonly string time_pair_start;
         private readonly string time_pair_end;
         private readonly string time_break_start;
         private readonly string time_break_end;
         public readonly Shift shift;
-
         public Pair(string time_pair_start, string time_pair_end, string time_break_start, string time_break_end, Shift shift)
         {
             this.time_pair_start = time_pair_start;
