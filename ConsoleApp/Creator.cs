@@ -13,25 +13,9 @@ namespace ConsoleApp
 
         public static void CreateLesson()
         {
-            Console.WriteLine("Введите название дисциплины:");
-            string disciplineName = Console.ReadLine();
-            Discipline discipline = DB.disciplines.FirstOrDefault(d => d.Name.ToLower() == disciplineName.ToLower());
-            if (discipline == null)
-            {
-                Console.WriteLine("Дисциплина не найдена. Создайте дисциплину.");
-                CreateDiscipline();
-                discipline = DB.disciplines.Last();
-            }
+            Discipline discipline = CreateDiscipline();
 
-            Console.WriteLine("Введите ФИО преподавателя:");
-            string employeeName = Console.ReadLine();
-            Employee employee = DB.employees.FirstOrDefault(e => $"{e.Name} {e.Surname} {e.Patronymic}".ToLower() == employeeName.ToLower());
-            if (employee == null)
-            {
-                Console.WriteLine("Преподаватель не найден. Задайте преподавателя.");
-                CreateEmployee();
-                employee = DB.employees.Last();
-            }
+            
 
             Console.WriteLine("Введите номер аудитории:");
             string classroomNumber = Console.ReadLine();
@@ -92,7 +76,7 @@ namespace ConsoleApp
                 typeofactivity = DB.typeOfActivities.Last();
             }
 
-            Lesson lesson = new Lesson(DateTime.Parse(date), discipline, employee, classroom, group, pair, typeofactivity);
+            Lesson lesson = new Lesson(discipline, employee, classroom, group, pair, typeofactivity, DateTime.Parse(date));
             DB.lessons.Add(lesson);
             Console.WriteLine("Занятие успешно создано.");
         }
@@ -131,18 +115,21 @@ namespace ConsoleApp
             Console.WriteLine("Аудитория успешно создана.");
         }
 
-        public static void CreateDiscipline()
+        public static Discipline CreateDiscipline()
         {
             Console.WriteLine("Введите название дисциплины:");
             string disciplineName = Console.ReadLine();
+            Discipline discipline = DB.disciplines.FirstOrDefault(d => d.Name.ToLower() == disciplineName.ToLower());
+            if (discipline == null)
+            {
 
-            Console.WriteLine("Введите короткое название дисциплины:");
-            string disciplineShortName = Console.ReadLine();
+                Console.WriteLine("Введите короткое название дисциплины:");
+                string disciplineShortName = Console.ReadLine();
 
-            Discipline discipline = new Discipline(disciplineName, disciplineShortName);
-            DB.disciplines.Add(discipline);
-
-            Console.WriteLine("Дисциплина успешно создана.");
+                discipline = new Discipline(disciplineName, disciplineShortName);
+                DB.disciplines.Add(discipline);
+            }
+            return discipline;
         }
 
         public static void CreateGroup()
@@ -266,29 +253,37 @@ namespace ConsoleApp
 
         static public void CreateEmployee()
         {
-            Console.WriteLine("Введите имя сотрудника:");
-            string name = Console.ReadLine();
+            Console.WriteLine("Введите ФИО преподавателя:");
+            string employeeName = Console.ReadLine();
+            Employee employee = DB.employees.FirstOrDefault(e => $"{e.Name} {e.Surname} {e.Patronymic}".ToLower() == employeeName.ToLower());
+            if (employee == null)
+            {
 
-            Console.WriteLine("Введите фамилию сотрудника:");
-            string surname = Console.ReadLine();
+                Console.WriteLine("Введите имя сотрудника:");
+                string name = Console.ReadLine();
 
-            Console.WriteLine("Введите отчество сотрудника:");
-            string patronymic = Console.ReadLine();
+                Console.WriteLine("Введите фамилию сотрудника:");
+                string surname = Console.ReadLine();
 
+                Console.WriteLine("Введите отчество сотрудника:");
+                string patronymic = Console.ReadLine();
+
+                Position position = CreatePosition();
+                employee = new Employee(name, surname, patronymic, position);
+                DB.employees.Add(employee);
+            }
+        }
+
+        static public Position CreatePosition()
+        {
             Console.WriteLine("Введите название должности:");
             string jobTitleName = Console.ReadLine();
 
             Position position = DB.positions.FirstOrDefault(j => j.Title.ToLower() == jobTitleName.ToLower());
             if (position == null)
             {
-                Console.WriteLine("Должность не найдена. Создайте специальность.");
-                CreateSpeciality();
                 position = DB.positions.FirstOrDefault(j => j.Title.ToLower() == jobTitleName.ToLower());
             }
-
-            Employee employee = new Employee(name, surname, patronymic, position);
-            DB.employees.Add(employee);
-            Console.WriteLine("Сотрудник успешно создан.");
         }
 
         static public void CreateJobTitle()
