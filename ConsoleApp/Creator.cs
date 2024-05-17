@@ -10,7 +10,6 @@ namespace ConsoleApp
 {
     internal static class Creator
     {
-
         public static Lesson GetOrCreateLesson()
         {
             Discipline discipline = GetOrCreateDiscipline();
@@ -166,23 +165,27 @@ namespace ConsoleApp
         {
             Console.WriteLine("Введите начало пары (в формате чч:мм):");
             string pairStart = Console.ReadLine();
+            TimeSpan p_Start = TimeSpan.Parse(pairStart);
 
             Console.WriteLine("Введите конец пары (в формате чч:мм):");
-            string pairEnd = Console.ReadLine();
+            string pairEnd =  Console.ReadLine();
+            TimeSpan p_End = TimeSpan.Parse(pairEnd);
 
-            Pair pair = DB.pairs.FirstOrDefault(p => p.Time_Pair_Start == pairStart && p.Time_Pair_End == pairEnd);
+            Pair pair = DB.pairs.FirstOrDefault(p => p.Time_Pair_Start == p_Start && p.Time_Pair_End == p_End);
             if (pair == null)
             {
 
                 Console.WriteLine("Введите время начала перерыва (в формате чч:мм):");
                 string timeBreakStart = Console.ReadLine();
+                TimeSpan t_breakStart = TimeSpan.Parse(timeBreakStart);
 
                 Console.WriteLine("Введите время окончания перерыва (в формате чч:мм):");
                 string timeBreakEnd = Console.ReadLine();
+                TimeSpan t_breakEnd = TimeSpan.Parse(timeBreakEnd);
 
                 Shift shift = GetOrCreateShift();
 
-                pair = new Pair(pairStart, pairEnd, timeBreakStart, timeBreakEnd, shift);
+                pair = new Pair(p_Start, p_End, t_breakStart, t_breakEnd, shift);
                 DB.pairs.Add(pair);
             }
             return pair;
@@ -243,18 +246,18 @@ namespace ConsoleApp
             string name = Console.ReadLine();
 
             Console.WriteLine("Введите зарплату должности:");
-            int salary = Convert.ToInt32(Console.ReadLine());
+            int.TryParse(Console.ReadLine(), out int salary);
 
             Console.WriteLine("Введите название подразделения:");
             string subdivisionName = Console.ReadLine();
-            Division subdivision = DB.divisions.FirstOrDefault(s => s.Name.ToLower() == subdivisionName.ToLower());
-            if (subdivision == null)
+            Division division = DB.divisions.FirstOrDefault(s => s.Name.ToLower() == subdivisionName.ToLower());
+            if (division == null)
             {
                 Console.WriteLine("Подразделение не найдено. Создайте его");
-                GetOrCreateSubdivision();
+                GetOrCreateDivision();
             }
-            subdivision = DB.divisions.FirstOrDefault(s => s.Name.ToLower() == subdivisionName.ToLower());
-            Position speciality = new Position(name, salary, subdivision);
+            division = DB.divisions.FirstOrDefault(s => s.Name.ToLower() == subdivisionName.ToLower());
+            Position speciality = new Position(name, salary, division);
             DB.positions.Add(speciality);
             Console.WriteLine("Должность успешно создана.");
 
@@ -262,7 +265,7 @@ namespace ConsoleApp
         }
 
 
-        static public void GetOrCreateSubdivision()
+        static public void GetOrCreateDivision()
         {
             Console.WriteLine("Введите название подразделения:");
             string name = Console.ReadLine();

@@ -85,7 +85,7 @@ namespace ConsoleApp
                             Creator.GetOrCreatePosition();
                             break;
                         case 11:
-                            Creator.GetOrCreateSubdivision();
+                            Creator.GetOrCreateDivision();
                             break;
                         case 12:
                             Creator.GetOrCreateOrganization();
