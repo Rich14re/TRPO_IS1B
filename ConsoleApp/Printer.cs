@@ -142,7 +142,7 @@ namespace ConsoleApp
         {
             Console.WriteLine("Урок:");
             Console.WriteLine($"Дата: {lesson.DateHeld}");
-            Console.WriteLine($"Дисциплина: {lesson.Discipline.Name}");
+            PrintDiscipline(lesson.Discipline);
             Console.WriteLine($"Преподаватель: {lesson.Employe.Name}");
             Console.WriteLine($"Аудитория: {lesson.Classroom.Number}");
             Console.WriteLine($"Группа: {lesson.Group.Name}");
