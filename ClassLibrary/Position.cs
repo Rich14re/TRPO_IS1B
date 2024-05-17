@@ -26,6 +26,11 @@ namespace ClassLibrary
             get { return title; }
         }
 
+        public Division Division
+        {
+            get { return division; }
+        }
+
         public decimal Salary
         {
             get { return salary; }
