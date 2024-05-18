@@ -143,11 +143,11 @@ namespace ConsoleApp
             Console.WriteLine("Урок:");
             Console.WriteLine($"Дата: {lesson.DateHeld}");
             PrintDiscipline(lesson.Discipline);
-            Console.WriteLine($"Преподаватель: {lesson.Employe.Name}");
-            Console.WriteLine($"Аудитория: {lesson.Classroom.Number}");
-            Console.WriteLine($"Группа: {lesson.Group.Name}");
-            Console.WriteLine($"Пара: {lesson.Pair.Time_Pair_Start} - {lesson.Pair.Time_Break_End}");
-            Console.WriteLine($"Вид деятельности: {lesson.TypeOfActivity.Letter}");
+            PrintEmployee(lesson.Employe);
+            PrintClassroom(lesson.Classroom);
+            PrintGroup(lesson.Group);
+            PrintPair(lesson.Pair);
+            PrintTypeOfActivities();
         }
 
         private static void PrintDiscipline(Discipline discipline)
