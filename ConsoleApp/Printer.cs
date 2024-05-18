@@ -147,7 +147,7 @@ namespace ConsoleApp
             PrintClassroom(lesson.Classroom);
             PrintGroup(lesson.Group);
             PrintPair(lesson.Pair);
-            PrintTypeOfActivities();
+            PrintTypeOfActivity(lesson.TypeOfActivity);
         }
 
         private static void PrintDiscipline(Discipline discipline)
