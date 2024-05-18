@@ -230,7 +230,7 @@ namespace ConsoleApp
             Console.WriteLine($"Название: {organisation.Name}");
             Console.WriteLine($"Юридический адрес: {organisation.LegalAdress}");
             Console.WriteLine($"Фактический адрес: {organisation.ActualAdress}");
-            Console.WriteLine($"Руководитель: {organisation.Employee.Name}");
+            PrintEmployee(organisation.Employee);
         }
 
         private static void PrintBody(Body body)
