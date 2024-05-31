@@ -269,13 +269,7 @@ namespace ConsoleApp
 
             Console.WriteLine("Введите название организации:");
             string organizationName = Console.ReadLine();
-            Organisation organization = DB.organisations.FirstOrDefault(o => o.Name.ToLower() == organizationName.ToLower());
-            if (organization == null)
-            {
-                Console.WriteLine("Организация не найдена. Создайте ее");
-                GetOrCreateOrganization();
-            }
-            organization = DB.organisations.FirstOrDefault(o => o.Name.ToLower() == organizationName.ToLower());
+            Organisation organization = GetOrCreateOrganization();
             Division subdivision = new Division(name, director, organization);
             DB.divisions.Add(subdivision);
             Console.WriteLine("Подразделение успешно создано.");
