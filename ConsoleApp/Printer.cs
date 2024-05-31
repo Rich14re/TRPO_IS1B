@@ -238,15 +238,8 @@ namespace ConsoleApp
             Console.WriteLine("Корпус:");
             Console.WriteLine($"Название: {body.Name}");
             Console.WriteLine($"Адрес: {body.Address}");
-            if (body.Comendante != null)
-            {
-                Console.WriteLine($"Комендант: {body.Comendante.Name} {body.Comendante.Surname} {body.Comendante.Patronymic}");
-            }
-            else
-            {
-                Console.WriteLine("Комендант не указан.");
-            }
-            Console.WriteLine($"Организация: {body.Organization.Name}");
+            PrintEmployee(body.Comendante);
+            PrintOrganisation(body.Organization);
         }
     }
 }
