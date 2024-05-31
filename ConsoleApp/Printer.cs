@@ -217,7 +217,7 @@ namespace ConsoleApp
             Console.WriteLine("Подразделение:");
             Console.WriteLine($"Название: {division.Name}");
             PrintEmployee(division.director);
-            PrintOrganization(division.organization);
+            PrintOrganisation(division.organization);
         }
 
         public static void PrintOrganisation(Organisation organisation)
