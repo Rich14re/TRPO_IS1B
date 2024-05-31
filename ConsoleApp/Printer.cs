@@ -242,7 +242,7 @@ namespace ConsoleApp
             {
                 Console.WriteLine("Комендант не указан.");
             }
-            Console.WriteLine($"Организация: {body.Organization.Name}");
+            PrintOrganization(body.Organization);
         }
         private static void PrintShift(Shift shift)
         {
