@@ -125,16 +125,9 @@ namespace ConsoleApp
 
             Console.WriteLine("Введите отчество студента:");
             string patronymic = Console.ReadLine();
-
-            Console.WriteLine("Введите название группы студента:");
-            string groupName = Console.ReadLine();
-            ClassLibrary.Group group = DB.groups.FirstOrDefault(g => g.Name.ToLower() == groupName.ToLower());
-            if (group == null)
-            {
-                Console.WriteLine("Группа не найдена. Задайте группу.");
-                GetOrCreateGroup();
-            }
-            group = DB.groups.FirstOrDefault(g => g.Name.ToLower() == groupName.ToLower());
+            
+            ClassLibrary.Group group = GetOrCreateGroup();
+            
             Console.WriteLine("Введите дату рождения студента (пустое значение означает текущую дату):");
             string birth = Console.ReadLine();
 
@@ -250,13 +243,7 @@ namespace ConsoleApp
 
             Console.WriteLine("Введите название подразделения:");
             string subdivisionName = Console.ReadLine();
-            Division division = DB.divisions.FirstOrDefault(s => s.Name.ToLower() == subdivisionName.ToLower());
-            if (division == null)
-            {
-                Console.WriteLine("Подразделение не найдено. Создайте его");
-                GetOrCreateDivision();
-            }
-            division = DB.divisions.FirstOrDefault(s => s.Name.ToLower() == subdivisionName.ToLower());
+            Division division = GetOrCreateDivision();
             Position speciality = new Position(name, salary, division);
             DB.positions.Add(speciality);
             Console.WriteLine("Должность успешно создана.");
@@ -265,7 +252,7 @@ namespace ConsoleApp
         }
 
 
-        static public void GetOrCreateDivision()
+        static public Division GetOrCreateDivision()
         {
             Console.WriteLine("Введите название подразделения:");
             string name = Console.ReadLine();
@@ -282,58 +269,22 @@ namespace ConsoleApp
 
             Console.WriteLine("Введите название организации:");
             string organizationName = Console.ReadLine();
-            Organisation organization = DB.organisations.FirstOrDefault(o => o.Name.ToLower() == organizationName.ToLower());
-            if (organization == null)
-            {
-                Console.WriteLine("Организация не найдена. Создайте ее");
-                GetOrCreateOrganization();
-            }
-            organization = DB.organisations.FirstOrDefault(o => o.Name.ToLower() == organizationName.ToLower());
+            Organisation organization = GetOrCreateOrganization();
             Division subdivision = new Division(name, director, organization);
             DB.divisions.Add(subdivision);
             Console.WriteLine("Подразделение успешно создано.");
+
+            return subdivision;
         }
 
         static public Organisation GetOrCreateOrganization()
         {
-            Console.WriteLine("Введите название организации:");
-            string name = Console.ReadLine();
-
-            Organisation organisation = DB.organisations.FirstOrDefault(o => o.Name == name);
-            if (organisation == null)
-            {
-
-                Console.WriteLine("Введите юридический адрес организации:");
-                string legalAddress = Console.ReadLine();
-
-                Console.WriteLine("Введите фактический адрес организации:");
-                string actualAddress = Console.ReadLine();
-
-                Employee supervisor = GetOrCreateEmployee();
-
-                organisation = new Organisation(name, legalAddress, actualAddress, supervisor);
-                DB.organisations.Add(organisation);
-            }
-            return organisation;
+            return null; //Нет человека для выполнения варианта
         }
 
-        static public void GetOrCreateBody()
+        static public Body GetOrCreateBody()
         {
-            Console.WriteLine("Введите навзание корпуса:");
-            string name = Console.ReadLine().ToUpper();
-            Body body = DB.bodies.FirstOrDefault(b => b.Name == name);
-            if (body == null)
-            {
-
-                Console.WriteLine("Введите адрес корпуса:");
-                string address = Console.ReadLine();
-
-                Employee employee = GetOrCreateEmployee();
-                Organisation organisation = GetOrCreateOrganization();
-                
-                body = new Body(name, address, employee, organisation);
-                DB.bodies.Add(body);
-            }
+            return null; //Нет человека для выполнения варианта
         }
         static public TypeOfActivity GetOrCreateTypeOfActivity()
         {
