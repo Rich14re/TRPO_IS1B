@@ -60,7 +60,7 @@ namespace ConsoleApp
                 int n = Convert.ToInt32(Console.ReadLine());
                 for (int i = 0; i < n; i++)
                 {
-                    classroom.equipments.Add(GetOrCreateEquipment());
+                    classroom.Equipments.Add(GetOrCreateEquipment());
                 }
             }
             return classroom;
@@ -232,21 +232,21 @@ namespace ConsoleApp
             Position position = DB.positions.FirstOrDefault(j => j.Title.ToLower() == jobTitleName.ToLower());
             if (position == null)
             {
-                position = DB.positions.FirstOrDefault(j => j.Title.ToLower() == jobTitleName.ToLower());
+                
+                Console.WriteLine("Введите название должности:");
+                string name = Console.ReadLine();
+    
+                Console.WriteLine("Введите зарплату должности:");
+                int.TryParse(Console.ReadLine(), out int salary);
+    
+                Console.WriteLine("Введите название подразделения:");
+                string subdivisionName = Console.ReadLine();
+                Division division = GetOrCreateDivision();
+                Position speciality = new Position(name, salary, division);
+                DB.positions.Add(speciality);
+                Console.WriteLine("Должность успешно создана.");
             }
 
-            Console.WriteLine("Введите название должности:");
-            string name = Console.ReadLine();
-
-            Console.WriteLine("Введите зарплату должности:");
-            int.TryParse(Console.ReadLine(), out int salary);
-
-            Console.WriteLine("Введите название подразделения:");
-            string subdivisionName = Console.ReadLine();
-            Division division = GetOrCreateDivision();
-            Position speciality = new Position(name, salary, division);
-            DB.positions.Add(speciality);
-            Console.WriteLine("Должность успешно создана.");
 
             return position;
         }
@@ -254,27 +254,23 @@ namespace ConsoleApp
 
         static public Division GetOrCreateDivision()
         {
-            Console.WriteLine("Введите название подразделения:");
+            Console.WriteLine("Введите имя подразделения");
             string name = Console.ReadLine();
+            
+            Division subdivision = DB.divisions.FirstOrDefault(el => el.Name == name);
 
-            Console.WriteLine("Введите фамилию, имя и отчество директора:");
-            string directorFullName = Console.ReadLine();
-            Employee director = DB.employees.FirstOrDefault(e => $"{e.Name} {e.Surname} {e.Patronymic}" == directorFullName);
-            if (director == null)
+            if (subdivision == null)
             {
-                Console.WriteLine("Директор не найден. Создайте его.");
-                GetOrCreateEmployee();
-                director = DB.employees.Last();
+
+                Employee employee = GetOrCreateEmployee();
+                Organisation organization = GetOrCreateOrganization();
+                subdivision = new Division(name, employee, organization);
+                DB.divisions.Add(subdivision);
+                Console.WriteLine("подразделение успешно создано.");
             }
-
-            Console.WriteLine("Введите название организации:");
-            string organizationName = Console.ReadLine();
-            Organisation organization = GetOrCreateOrganization();
-            Division subdivision = new Division(name, director, organization);
-            DB.divisions.Add(subdivision);
-            Console.WriteLine("Подразделение успешно создано.");
-
+            
             return subdivision;
+
         }
 
         static public Organisation GetOrCreateOrganization()
