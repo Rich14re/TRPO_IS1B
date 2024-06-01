@@ -171,14 +171,14 @@ namespace ConsoleApp
             Console.WriteLine($"Количество мест: {classroom.Places}");
             Console.WriteLine($"Количество окон: {classroom.Windows}");
             Console.WriteLine("Оборудование:");
-            foreach (Equipments equipment in classroom.Equipments)
+            foreach (Equipment equipment in classroom.Equipments)
             {
                 PrintEquipments(equipment);
             }
             
         }
 
-        private static void PrintEquipments(Equipments equipment)
+        private static void PrintEquipments(Equipment equipment)
         {
             Console.WriteLine(equipment);
         }
