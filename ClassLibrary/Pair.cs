@@ -15,7 +15,7 @@ namespace ClassLibrary
         private readonly TimeSpan time_pair_end;
         private readonly TimeSpan time_break_start;
         private readonly TimeSpan time_break_end;
-        public readonly Shift shift;
+        private readonly Shift shift;
 
         public Pair(TimeSpan time_pair_start, TimeSpan time_pair_end, TimeSpan time_break_start, TimeSpan time_break_end, Shift shift)
         {
