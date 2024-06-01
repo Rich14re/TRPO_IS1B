@@ -12,8 +12,9 @@ namespace ClassLibrary
     public class Division
     {
         private readonly string name;
-        public readonly Employee director;
-        public readonly Organisation organization;
+        private readonly Employee director;
+        private readonly Organisation organization;
+
         public Division(string name, Employee director, Organisation organization)
         {
             this.name = name;
@@ -21,9 +22,8 @@ namespace ClassLibrary
             this.organization = organization;
         }
 
-        public string Name
-        {
-            get { return name; }
-        }
+        public string Name => name;
+        public Employee Employee => director;
+        public Organization Organization => organization;
     }
 }
