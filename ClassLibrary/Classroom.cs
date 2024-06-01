@@ -13,10 +13,10 @@ namespace ClassLibrary
     public class Classroom
     {
         private readonly string name;
-        public readonly Employee employee;
+        private readonly Employee employee;
         private readonly int places;
         private readonly int windows;
-        public readonly Equipment equipment;
+        private readonly Equipment equipment;
         public Classroom(string name, Employee employee, int count_places, int count_windows, Equipment equipment)
         {
             this.name = name;
