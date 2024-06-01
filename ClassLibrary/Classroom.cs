@@ -43,7 +43,7 @@ namespace ClassLibrary
             get { return windows; }
         }
 
-        public List<Equipment> Equipment { get { return equipments; } }
+        public List<Equipment> Equipments { get { return equipments; } }
         public Employee Employee { get { return employee; } }
     }
 }

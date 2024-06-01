@@ -30,7 +30,10 @@ namespace ClassLibrary
         {
             get { return time_pair_start; }
         }
-
+        public Shift Shift
+        {
+            get { return shift; }
+        }
         public TimeSpan Time_Pair_End
         {
             get { return time_pair_end; }
