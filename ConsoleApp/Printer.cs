@@ -171,7 +171,11 @@ namespace ConsoleApp
             Console.WriteLine($"Количество мест: {classroom.Places}");
             Console.WriteLine($"Количество окон: {classroom.Windows}");
             Console.WriteLine("Оборудование:");
-            Console.WriteLine(string.Join<Equipment>(", ", classroom.Equipments));
+            foreach (Equipment equipment in classroom.Equipment)
+            {
+                PrintEquipment(equipment);
+            }
+            
         }
 
         private static void PrintEmployee(Employee employee)
