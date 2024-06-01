@@ -12,7 +12,7 @@ namespace ClassLibrary
         private readonly string name;
         private readonly string surname;
         private readonly string patronymic;
-        public readonly Position position;
+        private readonly Position position;
 
         public Employee(string name, string surname, string patronymic, Position position)
         {
