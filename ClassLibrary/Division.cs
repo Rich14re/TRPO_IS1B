@@ -24,6 +24,6 @@ namespace ClassLibrary
 
         public string Name => name;
         public Employee Employee => director;
-        public Organization Organization => organization;
+        public Organisation Organization => organization;
     }
 }
