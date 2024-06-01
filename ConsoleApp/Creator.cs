@@ -232,21 +232,21 @@ namespace ConsoleApp
             Position position = DB.positions.FirstOrDefault(j => j.Title.ToLower() == jobTitleName.ToLower());
             if (position == null)
             {
-                position = DB.positions.FirstOrDefault(j => j.Title.ToLower() == jobTitleName.ToLower());
+                
+                Console.WriteLine("Введите название должности:");
+                string name = Console.ReadLine();
+    
+                Console.WriteLine("Введите зарплату должности:");
+                int.TryParse(Console.ReadLine(), out int salary);
+    
+                Console.WriteLine("Введите название подразделения:");
+                string subdivisionName = Console.ReadLine();
+                Division division = GetOrCreateDivision();
+                Position speciality = new Position(name, salary, division);
+                DB.positions.Add(speciality);
+                Console.WriteLine("Должность успешно создана.");
             }
 
-            Console.WriteLine("Введите название должности:");
-            string name = Console.ReadLine();
-
-            Console.WriteLine("Введите зарплату должности:");
-            int.TryParse(Console.ReadLine(), out int salary);
-
-            Console.WriteLine("Введите название подразделения:");
-            string subdivisionName = Console.ReadLine();
-            Division division = GetOrCreateDivision();
-            Position speciality = new Position(name, salary, division);
-            DB.positions.Add(speciality);
-            Console.WriteLine("Должность успешно создана.");
 
             return position;
         }
