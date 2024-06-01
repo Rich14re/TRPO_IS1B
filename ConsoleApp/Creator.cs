@@ -263,7 +263,7 @@ namespace ConsoleApp
             {
 
                 Employee employee = GetOrCreateEmployee();
-                Organization organization = GetOrCreateOrganization();
+                Organisation organization = GetOrCreateOrganization();
                 subdivision = new Division(name, employee, organization);
                 DB.divisions.Add(subdivision);
                 Console.WriteLine("подразделение успешно создано.");
