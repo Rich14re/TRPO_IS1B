@@ -14,14 +14,14 @@ namespace ClassLibrary
     public class Classroom
     {
         private readonly string name;
-        private readonly Employee employee;
+        private readonly Employee classTeachers;
         private readonly int places;
         private readonly int windows;
         private readonly List<Equipment> equipments;
         public Classroom(string name, Employee employee, int count_places, int count_windows)
         {
             this.name = name;
-            this.employee = employee;
+            this.classTeachers = employee;
             this.places = count_places;
             this.windows = count_windows;
             this.equipments = new List<Equipment>();
@@ -44,6 +44,6 @@ namespace ClassLibrary
         }
 
         public List<Equipment> Equipments { get { return equipments; } }
-        public Employee Employee { get { return employee; } }
+        public Employee ClassTeachers { get { return classTeachers; } }
     }
 }
