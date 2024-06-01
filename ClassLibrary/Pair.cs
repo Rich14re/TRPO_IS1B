@@ -8,13 +8,16 @@ namespace ClassLibrary
 {
     public class Pair
     {
-        private readonly string time_pair_start;
-        private readonly string time_pair_end;
-        private readonly string time_break_start;
-        private readonly string time_break_end;
-        public readonly Shift shift;
+        /// <summary>
+        /// Время должно храниться в TimeSpan
+        /// </summary>
+        private readonly TimeSpan time_pair_start;
+        private readonly TimeSpan time_pair_end;
+        private readonly TimeSpan time_break_start;
+        private readonly TimeSpan time_break_end;
+        private readonly Shift shift;
 
-        public Pair(string time_pair_start, string time_pair_end, string time_break_start, string time_break_end, Shift shift)
+        public Pair(TimeSpan time_pair_start, TimeSpan time_pair_end, TimeSpan time_break_start, TimeSpan time_break_end, Shift shift)
         {
             this.time_pair_start = time_pair_start;
             this.time_pair_end = time_pair_end;
@@ -22,19 +25,23 @@ namespace ClassLibrary
             this.time_break_end = time_break_end;
             this.shift = shift;
         }
-        public string Time_Pair_Start
+
+        public TimeSpan Time_Pair_Start
         {
             get { return time_pair_start; }
         }
-        public string Time_Pair_End
+
+        public TimeSpan Time_Pair_End
         {
             get { return time_pair_end; }
         }
-        public string Time_Break_Start
+
+        public TimeSpan Time_Break_Start
         {
             get { return time_break_start; }
         }
-        public string Time_Break_End
+
+        public TimeSpan Time_Break_End
         {
             get { return time_break_end; }
         }

@@ -19,15 +19,21 @@ namespace ClassLibrary
         private readonly Pair pair;
         private readonly TypeOfActivity typeofactivity;
 
-        public Lesson(DateTime dateHeld, Discipline discipline, Employee employee, Classroom classroom, Group group, Pair pair, TypeOfActivity typeofactivity)
+        public Lesson(Discipline discipline, Employee employee, Classroom classroom, Group group, Pair pair, TypeOfActivity typeofactivity, DateTime dateHeld)
         {
-            this.dateHeld = dateHeld != default ? dateHeld : DateTime.Now;
+            this.dateHeld = dateHeld;
             this.discipline = discipline;
             this.employee = employee;
             this.classroom = classroom;
             this.group = group;
             this.pair = pair;
             this.typeofactivity = typeofactivity;
+        }
+
+        public Lesson(Discipline discipline, Employee employee, Classroom classroom, Group group, Pair pair, TypeOfActivity typeofactivity)
+            :this(discipline, employee,classroom, group, pair, typeofactivity, DateTime.Now)
+        {
+
         }
 
         public DateTime DateHeld => dateHeld;

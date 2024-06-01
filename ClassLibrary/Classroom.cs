@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,17 +14,17 @@ namespace ClassLibrary
     public class Classroom
     {
         private readonly string name;
-        public readonly Employee employee;
+        private readonly Employee employee;
         private readonly int places;
         private readonly int windows;
-        public readonly Equipment[] equipment;
-        public Classroom(string name, Employee employee, int count_places, int count_windows, Equipment[] equipment)
+        private readonly List<Equipment> equipments;
+        public Classroom(string name, Employee employee, int count_places, int count_windows)
         {
             this.name = name;
             this.employee = employee;
             this.places = count_places;
             this.windows = count_windows;
-            this.equipment = equipment;
+            this.equipments = new List<Equipment>();
         }
 
         public string Number
@@ -42,6 +43,7 @@ namespace ClassLibrary
             get { return windows; }
         }
 
-        public Equipment[] Equipment { get { return equipment; } }
+        public List<Equipment> Equipment { get { return equipments; } }
+        public Employee Employee { get { return employee; } }
     }
 }

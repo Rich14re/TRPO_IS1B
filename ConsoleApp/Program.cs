@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace ConsoleApp
                 {
                     
                     Console.WriteLine("Выберите действие:");
+                    Console.WriteLine("0. Вывод базы данных");
                     Console.WriteLine("1. Создать занятие");
                     Console.WriteLine("2. Создать аудиторию");
                     Console.WriteLine("3. Создать дисциплину");
@@ -38,6 +40,9 @@ namespace ConsoleApp
                     int choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
                     {
+                        case 0:
+                            Printer.PrintDataDase();
+                            break;
                         case 1:
                             Creator.CreateLesson();
                             break;
