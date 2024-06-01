@@ -256,10 +256,11 @@ namespace ConsoleApp
         {
             Console.WriteLine("Введите название подразделения:");
             string name = Console.ReadLine();
-
+           
             Console.WriteLine("Введите фамилию, имя и отчество директора:");
             string directorFullName = Console.ReadLine();
-            Employee director = DB.employees.FirstOrDefault(e => $"{e.Name} {e.Surname} {e.Patronymic}" == directorFullName);
+            Employee director = GetOrCreateEmployee();
+            
             if (director == null)
             {
                 Console.WriteLine("Директор не найден. Создайте его.");
