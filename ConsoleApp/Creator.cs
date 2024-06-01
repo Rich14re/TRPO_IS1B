@@ -254,28 +254,23 @@ namespace ConsoleApp
 
         static public Division GetOrCreateDivision()
         {
-            Console.WriteLine("Введите название подразделения:");
+            Console.WriteLine("Введите имя подразделения");
             string name = Console.ReadLine();
-           
-            Console.WriteLine("Введите фамилию, имя и отчество директора:");
-            string directorFullName = Console.ReadLine();
-            Employee director = GetOrCreateEmployee();
             
-            if (director == null)
+            Division subdivision = DB.divisions.FirstOrDefault(el => el.Name == name);
+
+            if (subdivision == null)
             {
-                Console.WriteLine("Директор не найден. Создайте его.");
-                GetOrCreateEmployee();
-                director = DB.employees.Last();
+
+                Employee employee = GetOrCreateEmployee();
+                Organization organization = GetOrCreateOrganization();
+                subdivision = new Division(name, employee, organization);
+                DB.divisions.Add(subdivision);
+                Console.WriteLine("подразделение успешно создано.");
             }
-
-            Console.WriteLine("Введите название организации:");
-            string organizationName = Console.ReadLine();
-            Organisation organization = GetOrCreateOrganization();
-            Division subdivision = new Division(name, director, organization);
-            DB.divisions.Add(subdivision);
-            Console.WriteLine("Подразделение успешно создано.");
-
+            
             return subdivision;
+
         }
 
         static public Organisation GetOrCreateOrganization()
