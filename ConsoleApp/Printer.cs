@@ -167,11 +167,11 @@ namespace ConsoleApp
         {
             Console.WriteLine("Аудитория:");
             Console.WriteLine($"Номер: {classroom.Number}");
-            PrintEmployee(classroom.Employee);
+            PrintEmployee(classroom.ClassTeachers);
             Console.WriteLine($"Количество мест: {classroom.Places}");
             Console.WriteLine($"Количество окон: {classroom.Windows}");
             Console.WriteLine("Оборудование:");
-            Console.WriteLine(string.Join<Equipment>(", ", classroom.Equipment));
+            Console.WriteLine(string.Join<Equipment>(", ", classroom.Equipments));
         }
 
         private static void PrintEmployee(Employee employee)
