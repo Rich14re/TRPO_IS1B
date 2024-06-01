@@ -60,7 +60,7 @@ namespace ConsoleApp
                 int n = Convert.ToInt32(Console.ReadLine());
                 for (int i = 0; i < n; i++)
                 {
-                    classroom.equipments.Add(GetOrCreateEquipment());
+                    classroom.Equipments.Add(GetOrCreateEquipment());
                 }
             }
             return classroom;
