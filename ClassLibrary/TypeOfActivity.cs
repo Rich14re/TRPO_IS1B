@@ -8,5 +8,6 @@ namespace ClassLibrary
 {
     public class TypeOfActivity
     {
+        public string Letter { get; set; }
     }
 }

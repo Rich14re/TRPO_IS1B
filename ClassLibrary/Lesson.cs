@@ -17,17 +17,23 @@ namespace ClassLibrary
         private readonly Classroom classroom;
         private readonly Group group;
         private readonly Pair pair;
-        private readonly TypeOfActivity typeOfActivity;
+        private readonly TypeOfActivity typeofactivity;
 
-        public Lesson(DateTime dateHeld, Discipline discipline, Employee employee, Classroom classroom, Group group, Pair pair, TypeOfActivity lessonType)
+        public Lesson(Discipline discipline, Employee employee, Classroom classroom, Group group, Pair pair, TypeOfActivity typeofactivity, DateTime dateHeld)
         {
-            this.dateHeld = dateHeld != default ? dateHeld : DateTime.Now;
+            this.dateHeld = dateHeld;
             this.discipline = discipline;
             this.employee = employee;
             this.classroom = classroom;
             this.group = group;
             this.pair = pair;
-            this.typeOfActivity = lessonType;
+            this.typeofactivity = typeofactivity;
+        }
+
+        public Lesson(Discipline discipline, Employee employee, Classroom classroom, Group group, Pair pair, TypeOfActivity typeofactivity)
+            :this(discipline, employee,classroom, group, pair, typeofactivity, DateTime.Now)
+        {
+
         }
 
         public DateTime DateHeld => dateHeld;
@@ -36,7 +42,7 @@ namespace ClassLibrary
         public Classroom Classroom => classroom;
         public Group Group => group;
         public Pair Pair => pair;
-        public TypeOfActivity TypeOfActivity => typeOfActivity;
+        public TypeOfActivity TypeOfActivity => typeofactivity;
     }
 }
 

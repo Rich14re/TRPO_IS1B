@@ -25,5 +25,6 @@ namespace ClassLibrary
         public string Surname { get {  return surname; } }
         public string Patronymic { get {  return patronymic; } }
 
+        public Position Position => position;
     }
 }
