@@ -49,10 +49,7 @@ namespace ConsoleApp
         {
             foreach (var student in DB.students)
             {
-                Console.WriteLine("Студент:");
-                Console.WriteLine($"ФИО: {student.Name}");
-                Console.WriteLine($"Группа: {student.Group.Name}");
-                Console.WriteLine($"Дата рождения: {student.Birth}");
+                Printer.PrintStudent(student);
                 Console.WriteLine();
             }
         }
@@ -87,8 +84,7 @@ namespace ConsoleApp
         {
             foreach (var shift in DB.shifts)
             {
-                Console.WriteLine("Смена:");
-                Console.WriteLine($"Название: {shift.Name}");
+                Printer.PrintShift(shift);
                 Console.WriteLine();
             }
         }
@@ -143,11 +139,11 @@ namespace ConsoleApp
             Console.WriteLine("Урок:");
             Console.WriteLine($"Дата: {lesson.DateHeld}");
             PrintDiscipline(lesson.Discipline);
-            Console.WriteLine($"Преподаватель: {lesson.Employe.Name}");
-            Console.WriteLine($"Аудитория: {lesson.Classroom.Number}");
-            Console.WriteLine($"Группа: {lesson.Group.Name}");
-            Console.WriteLine($"Пара: {lesson.Pair.Time_Pair_Start} - {lesson.Pair.Time_Break_End}");
-            Console.WriteLine($"Вид деятельности: {lesson.TypeOfActivity.Letter}");
+            PrintEmployee(lesson.Employe);
+            PrintClassroom(lesson.Classroom);
+            PrintGroup(lesson.Group);
+            PrintPair(lesson.Pair);
+            PrintTypeOfActivity(lesson.TypeOfActivity);
         }
 
         private static void PrintDiscipline(Discipline discipline)
@@ -164,14 +160,14 @@ namespace ConsoleApp
             Console.WriteLine($"Сокращение: {group.Shortname}");
             Console.WriteLine($"Количество студентов: {group.Quantity}");
             Console.WriteLine($"Год создания: {group.Year}");
-            Console.WriteLine($"Специальность: {group.Speciality.Name}");
-            Console.WriteLine($"Куратор: {group.Employee.Name}");
+            PrintSpeciality(group.Speciality);
+            PrintEmployee(group.Employee);
         }
         private static void PrintClassroom(Classroom classroom)
         {
             Console.WriteLine("Аудитория:");
             Console.WriteLine($"Номер: {classroom.Number}");
-            Console.WriteLine($"Ответственный: {classroom.employee.Name}");
+            PrintEmployee(classroom.employee);
             Console.WriteLine($"Количество мест: {classroom.Places}");
             Console.WriteLine($"Количество окон: {classroom.Windows}");
             Console.WriteLine("Оборудование:");
@@ -182,7 +178,7 @@ namespace ConsoleApp
         {
             Console.WriteLine("Сотрудник:");
             Console.WriteLine($"ФИО: {employee.Name}");
-            Console.WriteLine($"Должность: {employee.Position.Title}");
+            PrintPosition(employee.Position);
         }
 
         private static void PrintPair(Pair pair)
@@ -192,7 +188,7 @@ namespace ConsoleApp
             Console.WriteLine($"Окончание: {pair.Time_Pair_End}");
             Console.WriteLine($"Начало перерыва: {pair.Time_Break_Start}");
             Console.WriteLine($"Окончание перерыва: {pair.Time_Break_End}");
-            Console.WriteLine($"Смена: {pair.shift.Name}");
+            PrintShift(pair.shift);
         }
 
         private static void PrintSpeciality(Speciality speciality)
@@ -213,15 +209,15 @@ namespace ConsoleApp
             Console.WriteLine("Должность:");
             Console.WriteLine($"Название: {position.Title}");
             Console.WriteLine($"Зарплата: {position.Salary}");
-            Console.WriteLine($"Подразделение: {position.division.Name}");
+            PrintDivision(position.division);
         }
 
         private static void PrintDivision(Division division)
         {
             Console.WriteLine("Подразделение:");
             Console.WriteLine($"Название: {division.Name}");
-            Console.WriteLine($"Директор: {division.director.Name}");
-            Console.WriteLine($"Организация: {division.organization.Name}");
+            PrintEmployee(division.director);
+            PrintOrganisation(division.organization);
         }
 
         public static void PrintOrganisation(Organisation organisation)
@@ -230,7 +226,7 @@ namespace ConsoleApp
             Console.WriteLine($"Название: {organisation.Name}");
             Console.WriteLine($"Юридический адрес: {organisation.LegalAdress}");
             Console.WriteLine($"Фактический адрес: {organisation.ActualAdress}");
-            Console.WriteLine($"Руководитель: {organisation.Employee.Name}");
+            PrintEmployee(organisation.Employee);
         }
 
         private static void PrintBody(Body body)
@@ -238,15 +234,21 @@ namespace ConsoleApp
             Console.WriteLine("Корпус:");
             Console.WriteLine($"Название: {body.Name}");
             Console.WriteLine($"Адрес: {body.Address}");
-            if (body.Comendante != null)
-            {
-                Console.WriteLine($"Комендант: {body.Comendante.Name} {body.Comendante.Surname} {body.Comendante.Patronymic}");
-            }
-            else
-            {
-                Console.WriteLine("Комендант не указан.");
-            }
-            Console.WriteLine($"Организация: {body.Organization.Name}");
+            PrintEmployee(body.Comendante);
+            PrintOrganisation(body.Organization);
+        }
+        private static void PrintShift(Shift shift)
+        {
+            Console.WriteLine("Смена:");
+            Console.WriteLine($"Название: {shift.Name}");
+        }
+        private static void PrintStudent(Student student)
+        {
+             Console.WriteLine("Студент:");
+             Console.WriteLine($"ФИО: {student.Name}");
+             PrintGroup(student.Group);
+             Console.WriteLine($"Дата рождения: {student.Birth}");
         }
     }
 }
+
