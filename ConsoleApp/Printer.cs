@@ -1,4 +1,4 @@
-using ClassLibrary;
+﻿using ClassLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -248,6 +248,6 @@ namespace ConsoleApp
              Console.WriteLine($"ФИО: {student.Name}");
              PrintGroup(student.Group);
              Console.WriteLine($"Дата рождения: {student.Birth}");
-        }        
+        }
     }
 }
