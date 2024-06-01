@@ -249,6 +249,15 @@ namespace ConsoleApp
              PrintGroup(student.Group);
              Console.WriteLine($"Дата рождения: {student.Birth}");
         }
+        public static void PrintGroup(Group group) 
+        {
+            Console.WriteLine(group.Name);
+            Console.WriteLine(group.Shortname);
+            Console.WriteLine(group.Quantity);
+            Console.WriteLine(group.Year);
+            Console.WriteLine(group.Speciality);
+            Console.WriteLine(group.Employee);
+        }
     }
 }
 

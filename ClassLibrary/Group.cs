@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+using System;
 
 namespace ClassLibrary
 {
@@ -18,7 +12,7 @@ namespace ClassLibrary
         private readonly int quantity;
         private readonly int year;
         private readonly Speciality speciality;
-        public readonly Employee employee;
+        private readonly Employee employee;
         //Изменения 1
         public Group(string name, string shortname, int quantity, Speciality speciality, Employee employee, int year = -1)
         {
@@ -67,3 +61,4 @@ namespace ClassLibrary
         }
     }
 }
+ 
