@@ -177,7 +177,7 @@ namespace ConsoleApp
         private static void PrintEmployee(Employee employee)
         {
             Console.WriteLine("Сотрудник:");
-            Console.WriteLine($"ФИО: {employee.Name}");
+            Console.WriteLine($"ФИО: {employee.Surname} {employee.Name} {employee.Patronymic}");
             PrintPosition(employee.Position);
         }
 
