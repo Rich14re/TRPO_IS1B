@@ -167,7 +167,7 @@ namespace ConsoleApp
         {
             Console.WriteLine("Аудитория:");
             Console.WriteLine($"Номер: {classroom.Number}");
-            PrintEmployee(classroom.employee);
+            PrintEmployee(classroom.Employee);
             Console.WriteLine($"Количество мест: {classroom.Places}");
             Console.WriteLine($"Количество окон: {classroom.Windows}");
             Console.WriteLine("Оборудование:");
@@ -188,7 +188,7 @@ namespace ConsoleApp
             Console.WriteLine($"Окончание: {pair.Time_Pair_End}");
             Console.WriteLine($"Начало перерыва: {pair.Time_Break_Start}");
             Console.WriteLine($"Окончание перерыва: {pair.Time_Break_End}");
-            PrintShift(pair.shift);
+            PrintShift(pair.Shift);
         }
 
         private static void PrintSpeciality(Speciality speciality)
@@ -216,8 +216,8 @@ namespace ConsoleApp
         {
             Console.WriteLine("Подразделение:");
             Console.WriteLine($"Название: {division.Name}");
-            PrintEmployee(division.director);
-            PrintOrganisation(division.organization);
+            PrintEmployee(division.Director);
+            PrintOrganisation(division.Organization);
         }
 
         public static void PrintOrganisation(Organisation organisation)
